@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    #    url: jdbc:mysql://10.121.0.81:3306/guestroom?serverTimezone=GMT&characterEncoding=utf-8
+    url: jdbc:mysql://localhost:3306/archive?serverTimezone=GMT&characterEncoding=utf-8
+    username: root
+    password: 123456@abcABC
+    type: org.apache.tomcat.jdbc.pool.DataSource
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+  session:
+    store-type: none
+server:
+  port: 80
+security:
+  basic:
+    enabled: true
