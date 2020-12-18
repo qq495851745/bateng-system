@@ -12,7 +12,6 @@
 
     <artifactId>bateng-security-demo</artifactId>
 
-
         <dependencies>
             <dependency>
                 <groupId>${bateng.security.groupId}</groupId>
