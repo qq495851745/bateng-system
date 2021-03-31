@@ -1,4 +1,4 @@
-package com.bateng.security.browser.support;
+package com.bateng.security.core.support;
 
 public class SimpleRespone {
     private Object content;

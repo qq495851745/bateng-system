@@ -3,7 +3,7 @@ package com.bateng.security.browser.controller;
 import com.bateng.core.properties.BatengSecurityProperties;
 import com.bateng.core.properties.BrowserProperties;
 import com.bateng.core.properties.BatengSecurityProperties;
-import com.bateng.security.browser.support.SimpleRespone;
+import com.bateng.core.support.SimpleRespone;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

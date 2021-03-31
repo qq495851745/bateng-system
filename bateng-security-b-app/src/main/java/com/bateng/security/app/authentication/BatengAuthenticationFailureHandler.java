@@ -1,9 +1,8 @@
-package com.bateng.security.browser.authentication;
+package com.bateng.security.app.authentication;
 
 import com.bateng.core.properties.BatengSecurityProperties;
 import com.bateng.core.properties.LoginType;
-import com.bateng.security.browser.support.SimpleRespone;
-import com.bateng.utils.ToJsonString;
+import com.bateng.core.support.SimpleRespone;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

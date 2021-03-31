@@ -1,9 +1,9 @@
 package com.bateng.security.browser.authentication;
 
-import com.bateng.core.properties.BatengSecurityProperties;
-import com.bateng.core.properties.LoginType;
-import com.bateng.security.browser.support.SimpleRespone;
-import com.bateng.utils.ToJsonString;
+
+import com.bateng.security.core.properties.BatengSecurityProperties;
+import com.bateng.security.core.properties.LoginType;
+import com.bateng.security.core.support.SimpleRespone;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import static com.bateng.utils.ToJsonString.*;
+
+import static com.bateng.security.core.utils.ToJsonString.toDisableCircularReferenceDetectString;
 
 @Component
 public class BatengAuthenticationFailureHandler extends SimpleUrlAuthenticationFailureHandler {

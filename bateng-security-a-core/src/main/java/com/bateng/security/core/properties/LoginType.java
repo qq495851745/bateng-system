@@ -1,4 +1,4 @@
-package com.bateng.core.properties;
+package com.bateng.security.core.properties;
 
 public enum LoginType {
     JSON,

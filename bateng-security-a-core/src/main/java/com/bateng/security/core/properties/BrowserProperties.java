@@ -1,4 +1,4 @@
-package com.bateng.core.properties;
+package com.bateng.security.core.properties;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;

@@ -1,6 +1,6 @@
-package com.bateng.core.validate.code;
+package com.bateng.security.core.validate.code;
 
-import com.bateng.core.properties.BatengSecurityProperties;
+import com.bateng.security.core.properties.BatengSecurityProperties;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

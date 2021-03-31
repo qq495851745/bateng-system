@@ -1,4 +1,4 @@
-package com.bateng.core.validate.code;
+package com.bateng.security.core.validate.code;
 
 import org.springframework.security.core.AuthenticationException;
 

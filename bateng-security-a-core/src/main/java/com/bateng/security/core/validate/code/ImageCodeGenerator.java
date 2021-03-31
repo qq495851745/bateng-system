@@ -1,6 +1,7 @@
-package com.bateng.core.validate.code;
+package com.bateng.security.core.validate.code;
 
-import com.bateng.core.properties.BatengSecurityProperties;
+
+import com.bateng.security.core.properties.BatengSecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.ServletRequestUtils;

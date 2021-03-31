@@ -1,4 +1,4 @@
-package com.bateng.utils;
+package com.bateng.security.core.utils;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;

@@ -1,4 +1,4 @@
-package com.bateng.security.browser.authentication;
+package com.bateng.security.app.authentication;
 
 import com.bateng.core.properties.BatengSecurityProperties;
 import com.bateng.core.properties.LoginType;
