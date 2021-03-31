@@ -8,8 +8,10 @@ import com.bateng.security.browser.authentication.BatengAuthenticationSuccessHan
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,8 +20,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.CorsUtils;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 import javax.sql.DataSource;
+import java.util.Arrays;
 
 @Configuration
 public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -35,10 +43,12 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
     private BatengAuthenticationFailureHandler batengAuthenticationFailureHandler;
 
     @Autowired
+    @Qualifier("dataSource")
     private DataSource dataSource;
 
     @Autowired
     private UserDetailsService userDetailsService;
+
 
     /**
      * 提供加密工具
@@ -62,7 +72,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+   protected void configure(HttpSecurity http) throws Exception {
         logger.info("登录页面：" + batengSecurityProperties.getBrowserProperties().getLoginPage());
 
         ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
@@ -70,26 +80,36 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
         validateCodeFilter.setBatengSecurityProperties(batengSecurityProperties);
         validateCodeFilter.afterPropertiesSet();
         http
-                .addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
-                // .httpBasic()
+                .cors()
+//                .and().csrf().disable()
+//                .authorizeRequests().requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
+//                .antMatchers(HttpMethod.OPTIONS,"/**").permitAll().and()
+
+                .and()
+//                .addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
+//                .httpBasic()
+//                .cors().and()
                 .formLogin()
-                    .loginPage("/authentication/require")
-                    .loginProcessingUrl("/authentication/login")
-                    .successHandler(batengAuthenticationSuccessHandler)
-                    .failureHandler(batengAuthenticationFailureHandler)
+                .loginPage("/authentication/require")
+                .loginProcessingUrl("/authentication/login")
+                .successHandler(batengAuthenticationSuccessHandler)
+                .failureHandler(batengAuthenticationFailureHandler)
                 .and()
                 .rememberMe()
-                    .tokenRepository(persistentTokenRepository())
-                    .tokenValiditySeconds(batengSecurityProperties.getBrowserProperties().getRememberMeSeconds())
-                    .userDetailsService(userDetailsService)
+                .tokenRepository(persistentTokenRepository())
+                .tokenValiditySeconds(batengSecurityProperties.getBrowserProperties().getRememberMeSeconds())
+                .userDetailsService(userDetailsService)
                 .and()
-                    .authorizeRequests()
-                    .antMatchers("/authentication/require", batengSecurityProperties.getBrowserProperties().getLoginPage(), batengSecurityProperties.getValidateCodeProperties().getImageCodeProperties().getUrl()).permitAll()
-    //                .antMatchers("/authentication/require")
-                    .anyRequest()
-                    .authenticated()
-                .and().csrf().disable();
+                .authorizeRequests()
+                .antMatchers("/authentication/require", batengSecurityProperties.getBrowserProperties().getLoginPage(), batengSecurityProperties.getValidateCodeProperties().getImageCodeProperties().getUrl()).permitAll()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .csrf().disable();
     }
+
+
+
 
 
 }

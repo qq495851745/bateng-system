@@ -86,6 +86,12 @@ public class UserBizImpl implements UserBiz {
 //        return list.size() != 0;
 //    }
 
+
+    @Override
+    public List<User> findAll() {
+        return userDao.findAll();
+    }
+
     public UserDao getUserDao() {
         return userDao;
     }

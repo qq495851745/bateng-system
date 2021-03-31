@@ -14,6 +14,7 @@ import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.security.web.savedrequest.RequestCache;
 import org.springframework.security.web.savedrequest.SavedRequest;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,7 +35,8 @@ public class BrowserSecurityController {
 
 
     @RequestMapping(value = "/authentication/require")
-    @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
+//    @CrossOrigin(allowCredentials = "true")
+    @ResponseStatus(value = HttpStatus.OK)
     public String requireAuthentication(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         logger.info(batengSecurityProperties.getBrowserProperties().getLoginPage());

@@ -14,11 +14,11 @@ public class TimeFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
             long time1 = new Date().getTime();
-        System.out.println("过滤器执行");
+//       System.out.println("过滤器执行");
             filterChain.doFilter(servletRequest,servletResponse);
-            long time2 = new Date().getTime();
-        System.out.println("请求耗时:   "+(time2-time1));
-        System.out.println("过滤器完成");
+//            long time2 = new Date().getTime();
+//        System.out.println("请求耗时:   "+(time2-time1));
+//        System.out.println("过滤器完成");
     }
 
     @Override

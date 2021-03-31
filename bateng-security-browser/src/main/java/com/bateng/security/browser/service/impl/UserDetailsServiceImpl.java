@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class UserDetailsServiceImpl implements UserDetailsService {
     private Logger logger = LoggerFactory.getLogger(UserDetailsServiceImpl.class);
 
-    @Autowired
+//    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Autowired
@@ -30,7 +30,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         boolean credentialsNonExpired = true;
         boolean accountNonExpired = true;
         boolean enabled =true;
-        logger.info(userDao.toString());
+//        logger.info(userDao.toString());
 
         com.bateng.security.browser.entity.User user
                 =userDao.findByUsername(username);

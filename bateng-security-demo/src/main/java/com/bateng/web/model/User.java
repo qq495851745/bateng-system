@@ -1,31 +1,42 @@
 package com.bateng.web.model;
 
-import com.bateng.web.validator.NotName;
-import io.swagger.annotations.ApiModelProperty;
-import org.hibernate.validator.constraints.NotBlank;
-
+import javax.persistence.*;
 import java.util.Date;
 
-public class User {
-
+/*@Entity
+@Table(name = "t_user")*/
+public class User  {/*
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "uid")
     private Integer id;
-    private String username;
-    @NotName
-    private String password;
-    @ApiModelProperty(value = "生日")
-    private Date birthday;
 
-    public Date getBirthday() {
-        return birthday;
-    }
+    @Column(name = "username")
+    private String username; //用户名
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
+    @Column(name = "upassword")
+    private String password; //密码
 
-    public String getUsername() {
-        return username;
-    }
+    @Column(name = "realname")
+    private String realName;//真实姓名
+
+
+
+
+
+    @Column(name = "delflag")
+    private int flag=1;//删除标记
+
+    @Column(name = "delete_role")
+    private int deleteRole;
+
+    @Column(name = "createdate")
+    @Temporal(TemporalType.DATE)
+    private Date createDate;
+
+    @Column(name="updatetime")
+    @Temporal(TemporalType.DATE)
+    private Date updateDate;
 
     public Integer getId() {
         return id;
@@ -33,6 +44,10 @@ public class User {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     public void setUsername(String username) {
@@ -46,4 +61,44 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
+
+    public int getFlag() {
+        return flag;
+    }
+
+    public void setFlag(int flag) {
+        this.flag = flag;
+    }
+
+    public int getDeleteRole() {
+        return deleteRole;
+    }
+
+    public void setDeleteRole(int deleteRole) {
+        this.deleteRole = deleteRole;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }*/
 }

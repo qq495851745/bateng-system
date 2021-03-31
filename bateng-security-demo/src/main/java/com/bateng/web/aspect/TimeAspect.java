@@ -12,13 +12,13 @@ public class TimeAspect {
     @Around("execution(* com.bateng.web.controller.UserController.*(..))")
     public Object  handle(ProceedingJoinPoint pjp){
         Object o = null;
-        System.out.println("执行切面");
+//        System.out.println("执行切面");
         try {
               o = pjp.proceed();
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }
-        System.out.println("切面执行完成");
+//        System.out.println("切面执行完成");
         return  o;
     }
 }

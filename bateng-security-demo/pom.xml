@@ -12,9 +12,14 @@
 
     <artifactId>bateng-security-demo</artifactId>
         <dependencies>
-            <dependency>
+           <!-- <dependency>
                 <groupId>${bateng.security.groupId}</groupId>
                 <artifactId>bateng-security-browser</artifactId>
+                <version>${bateng.security.version}</version>
+            </dependency>-->
+            <dependency>
+                <groupId>${bateng.security.groupId}</groupId>
+                <artifactId>bateng-security-app</artifactId>
                 <version>${bateng.security.version}</version>
             </dependency>
 

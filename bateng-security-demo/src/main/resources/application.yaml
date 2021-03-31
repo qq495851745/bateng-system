@@ -14,7 +14,7 @@ spring:
   session:
     store-type: none
 server:
-  port: 80
+  port: 8081
 security:
   basic:
     enabled: true

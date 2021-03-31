@@ -25,6 +25,8 @@ public interface UserBiz {
 
     public PageVo<User> findUserByPage(PageVo<User> pageVo, User user);
 
+    public List<User> findAll();
+
     /**
      * 做删除操作
      * @param id
